@@ -1,0 +1,146 @@
+/* Basic Reset and Setup */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* --- Main Navbar Styling --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- Logo Image Styling --- */
+.logoline {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+/* --- Logo/Brand Styling --- */
+.navbar-brand {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- Navigation Links Styling --- */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: #252272;
+    font-size: 16px;
+    transition: color 0.3s;
+    
+    /* Required for smooth underline animation */
+    position: relative; 
+    padding-bottom: 5px; 
+}
+
+/* --- Smooth Underline Animation --- */
+
+/* Create the invisible line element */
+.navbar-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Start with zero width (invisible) */
+    height: 2px; /* Thickness of the line */
+    background: red; /* Color of the underline */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out; /* Smooth animation timing */
+}
+
+/* Expand the line on hover */
+.navbar-links li a:hover::after {
+    width: 100%; /* Line expands to full width */
+}
+
+.navbar-links li a:hover {
+    color: red; /* Change text color on hover */
+    /* Removed text-decoration-line and font-size change */
+}
+
+/* --- Right-Side Icons Styling --- */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search Box Styling - Initial (Closed) State */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 0; 
+    border-radius: 3px;
+    height: 38px;
+    width: 38px; /* Square shape when closed */
+    box-sizing: border-box;
+    justify-content: center;
+    overflow: hidden; 
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.search-icon {
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+    padding: 0 10px;
+    z-index: 10;
+}
+
+/* Style the search input field - Initially hidden */
+.search-input {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease 0.1s;
+    flex-shrink: 0;
+}
+
+/* Search Box Styling - Active (Open) State */
+.search-box.open {
+    width: 250px; /* Expanded width when open */
+    padding: 0; 
+    justify-content: flex-start;
+}
+
+/* When the search box is open, expand and show the input field */
+.search-box.open .search-input {
+    width: 190px;
+    opacity: 1;
+    padding-right: 10px;
+}
+
+/* User Profile Image Styling */
+.user-profile {
+    margin-left: 10px;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue Page | Line Home Store</title>
+    <link rel="stylesheet" href="Add_article.css"> 
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+        <img class="logoline" src="/Logos/Line Home Store Logo.png" alt="Line Home Store Logo">
+    </a>
+
+    <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-me.html">About Me</a></li>
+        <li><a href="Add_article.html">Add Article</a></li>
+        <li class="active-nav"><a href="catalogue.html">Catalogue</a></li> 
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="navbar-icons">
+        <div class="search-box">
+            <span class="search-icon" id="searchToggle">🔍</span> 
+            <input type="text" class="search-input" placeholder="Search products by code...">
+        </div>
+        <div class="user-profile">
+            <img src="/Logos/logoprofile.jpg" alt="User Profile" class="profile-img">
+        </div>
+    </div>
+</nav>
+
+<main class="catalogue-content">
+    <h1>🛋️ Our Furniture Catalogue</h1>
+    <p>Loading products from the database...</p>
+    
+    <div class="filter-bar">
+        <label for="category-select">Filter by Category:</label>
+        <select id="category-select" class="category-dropdown">
+            <option value="all">All Categories</option>
+            <option value="finedinning">FINE DINNING</option>
+            <option value="paolac">PAOLA C</option>
+            <option value="mariaterracotta">MARIA TERRACOTTA</option>
+            <option value="bitossihome">BITOSSI HOME</option>
+            <option value="klevering">&KLEVERING</option>
+            <option value="giobaniara">GIOBANIARA</option>
+            <option value="newmags">NEW MAGS</option>
+            <option value="bougieboogie">BOUGIE BOOGIE</option>
+            <option value="knindustrie">KNINDUSTRIE</option>
+            <option value="fratihome">FRATI HOME</option>
+            <option value="rituals">RITUALS</option>
+            <option value="aesop">AESOP</option>
+            <option value="lelabo">LE LABO</option>
+            <option value="heirloomtomato">HEIRLOOM TOMATO</option>
+            <option value="coconutandamber">COCONUT AND AMBER</option>
+            <option value="allumettes">ALLUMETTES</option>
+            <option value="hermesparis">HERMES PARIS</option>
+            <option value="seraxtomorrowland">SERAX TOMORROWLAND</option>
+            <option value="theiere">THEIERE</option>
+            <option value="cadrephoto">CADRE PHOTO</option>
+            <option value="videpoche">VIDE POCHE</option>
+            <option value="lampe">LAMPE</option>
+            <option value="vaseagente">VASE AGENTE</option>
+            <option value="4tasse">4 TASSE</option>
+            <option value="objetdecorative">OBJET DECORATIVE</option>
+            <option value="philippi">PHILIPPI</option>
+            <option value="alessi">ALESSI</option>
+        </select>
+    </div>
+    
+    <section class="articles-grid">
+        </section>
+    
+</main>
+<script src="Catalogue.js"></script> 
+</body>
+</html>

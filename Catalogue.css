@@ -1,0 +1,176 @@
+/* Basic Reset and Setup */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 60px; /* Compensation for fixed navbar */
+    background-color: #f7f7f7; 
+}
+
+/* --- Main Navbar Styling (Fixed) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+
+    position: fixed; 
+    top: 0;          
+    width: 100%;     
+    z-index: 1000; 
+    box-sizing: border-box; 
+}
+
+/* --- Logo and Links Styling --- */
+.logoline { width: 100px; height: auto; display: block; }
+.navbar-brand { text-decoration: none; padding: 0; margin: 0; }
+.navbar-links { list-style: none; display: flex; margin: 0; padding: 0; flex-grow: 1; justify-content: center; gap: 30px; }
+.navbar-links li a {
+    text-decoration: none;
+    color: #252272;
+    font-size: 16px;
+    transition: color 0.3s;
+    position: relative; 
+    padding-bottom: 5px; 
+}
+
+/* --- Smooth Underline Animation --- */
+.navbar-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px; 
+    background: red;
+    bottom: 0; left: 0;
+    transition: width 0.3s ease-in-out; 
+}
+.navbar-links li a:hover::after { width: 100%; }
+.navbar-links li a:hover { color: red; }
+
+/* --- Right-Side Icons Styling --- */
+.navbar-icons { display: flex; align-items: center; gap: 15px; }
+.profile-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: none; }
+
+/* --- Search Box Styling (Expandable) --- */
+.search-box {
+    position: relative; display: flex; align-items: center; border: 1px solid #ccc;
+    padding: 0; border-radius: 3px; height: 38px; width: 38px; box-sizing: border-box;
+    justify-content: center; overflow: hidden; 
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+.search-icon { font-size: 18px; color: #555; cursor: pointer; padding: 0 10px; z-index: 10; }
+
+.search-input {
+    border: none; outline: none; padding: 0; margin: 0; font-size: 16px;
+    width: 0; opacity: 0; transition: width 0.3s ease, opacity 0.3s ease 0.1s; flex-shrink: 0;
+}
+.search-box.open { width: 250px; padding: 0; justify-content: flex-start; }
+.search-box.open .search-input { width: 190px; opacity: 1; padding-right: 10px; }
+
+
+/* --- Catalogue Content Styles --- */
+.catalogue-content { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.catalogue-content h1 { font-size: 36px; color: #252272; margin-top: 40px; text-align: center; }
+
+/* --- Enhanced Filter Bar Styling --- */
+.filter-bar {
+    text-align: left; margin: 20px 0 40px; padding: 20px; background-color: #ffffff;
+    border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: flex; 
+    align-items: center; gap: 20px;
+}
+.filter-bar label { font-weight: 600; color: #252272; font-size: 18px; margin-right: 0; }
+.category-dropdown {
+    -webkit-appearance: none; -moz-appearance: none; appearance: none; 
+    padding: 12px 35px 12px 15px; border: 2px solid #ccc; border-radius: 6px; 
+    font-size: 16px; background-color: #f9f9f9; color: #333; cursor: pointer;
+    outline: none; transition: all 0.3s ease;
+    /* Custom Arrow using SVG data URI */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23252272%22%20d%3D%22M287%20197.3l-133%20133c-2.8%202.8-5.7%204.2-8.5%204.2s-5.7-1.4-8.5-4.2l-133-133c-5.7-5.7-5.7-14.2%200-19.9s14.2-5.7%2019.9%200l123.6%20123.6%20123.6-123.6c5.7-5.7%2014.2-5.7%2019.9%200s5.7%2014.2%200%2019.9z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat; background-position: right 10px center; background-size: 12px; 
+}
+.category-dropdown:focus { border-color: #252272; box-shadow: 0 0 0 3px rgba(37, 34, 114, 0.2); }
+
+
+/* --- Article Grid and Card Styles --- */
+.articles-grid {
+    display: grid;
+    /* 4 equal columns for large screens */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.article-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    padding-bottom: 20px;
+}
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.article-img {
+    width: 100%;
+    height: 250px; 
+    /* KEY CHANGE: Use 'contain' to show the entire image, no matter its aspect ratio */
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s;
+}
+.article-card:hover .article-img {
+    transform: scale(1.05);
+}
+
+.article-name { padding: 10px 20px 0; color: #252272; font-size: 20px; margin-bottom: 5px; }
+.article-code { padding: 0 20px; font-size: 14px; color: #777; margin-bottom: 15px; }
+
+.article-price-section {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 20px; border-top: 1px solid #eee;
+}
+.article-price { font-size: 22px; font-weight: 700; color: #333; }
+
+/* See More Button Styling */
+.btn-see-more {
+    text-decoration: none;
+    background-color: red; 
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.btn-see-more:hover { background-color: #cc0000; }
+
+/* Scroll Spacer Styles */
+.scroll-spacer {
+    height: 600px;
+    background: repeating-linear-gradient(45deg, #f7f7f7, #f7f7f7 10px, #eeeeee 10px, #eeeeee 20px);
+    margin: 30px 0;
+    border-radius: 8px;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet layout: Switch to 2 columns */
+@media (max-width: 1024px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Mobile layout: Switch to 1 column */
+@media (max-width: 600px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .navbar {
+        padding: 10px 20px; /* Adjust navbar padding for mobile */
+    }
+}
